@@ -1,0 +1,229 @@
+.checkoutOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 1rem;
+}
+
+.checkoutContainer {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.closeButton {
+  float: right;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #89CFF0;
+  transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #D62828;
+}
+
+.checkoutTitle {
+  font-family: 'Pacifico', 'Lobster', cursive;
+  font-size: 2rem;
+  color: #D62828;
+  margin-bottom: 1.5rem;
+  clear: both;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #1B4332;
+}
+
+.formInput,
+.formSelect {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #89CFF0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.formInput:focus,
+.formSelect:focus {
+  outline: none;
+  border-color: #D62828;
+  box-shadow: 0 0 0 3px rgba(214, 40, 40, 0.1);
+}
+
+.formInput::placeholder {
+  color: #CCCCCC;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+
+.radioOption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.radioOption input {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.radioOption label {
+  cursor: pointer;
+  color: #1B4332;
+  font-weight: 500;
+}
+
+.orderSummary {
+  background-color: #FDF6E3;
+  border: 2px solid #89CFF0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.summaryTitle {
+  font-weight: 700;
+  color: #D62828;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.summaryItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #89CFF0;
+  color: #1B4332;
+}
+
+.summaryItem:last-child {
+  border-bottom: none;
+}
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 2px solid #D62828;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #D62828;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.submitButton {
+  flex: 1;
+  padding: 1rem;
+  background-color: #D62828;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #B71C1C;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(214, 40, 40, 0.3);
+}
+
+.cancelButton {
+  flex: 1;
+  padding: 1rem;
+  background-color: #89CFF0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancelButton:hover {
+  background-color: #7AB8D6;
+  transform: translateY(-2px);
+}
+
+.successMessage {
+  background-color: #E8F5E9;
+  border: 2px solid #4CAF50;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.successIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.successTitle {
+  font-family: 'Ballpark Weiner', 'Fredoka One', cursive;
+  font-size: 1.8rem;
+  color: #4CAF50;
+  margin-bottom: 1rem;
+}
+
+.successText {
+  color: #2E7D32;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .checkoutContainer {
+    padding: 1.5rem;
+  }
+
+  .checkoutTitle {
+    font-size: 1.5rem;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+  }
+
+  .radioGroup {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
