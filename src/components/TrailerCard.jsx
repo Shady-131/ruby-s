@@ -1,24 +1,25 @@
+import { useState } from 'react'
 import { useCart } from '../context/CartContext'
 import styles from '../styles/TrailerCard.module.css'
 
 export default function TrailerCard({ isOpen, onClose, onCheckout }) {
   const { cart, removeFromCart, updateQuantity, getTotalPrice } = useCart()
+  const [tip, setTip] = useState('')
   const totalPrice = getTotalPrice()
+  const tipAmount = parseFloat(tip) || 0
+  const finalTotal = totalPrice + tipAmount
 
   if (!isOpen) return null
 
   return (
-    <div style={{
-      position: 'fixed',
-      inset: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      zIndex: 1000,
-      padding: '1rem'
-    }} onClick={onClose}>
-      <div style={{ maxHeight: '90vh', overflow: 'auto' }} onClick={(e) => e.stopPropagation()}>
+    <div 
+      className={styles.cartOverlay}
+      onClick={onClose}
+    >
+      <div 
+        className={styles.cartBottomSheet}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className={styles.cartContainer}>
           <div className={styles.cartHeader}>
             <h2 className={styles.cartTitle}>Your Order</h2>
@@ -78,9 +79,34 @@ export default function TrailerCard({ isOpen, onClose, onCheckout }) {
           </div>
 
           <div className={styles.cartFooter}>
+            <div className={styles.tipSection}>
+              <label className={styles.tipLabel}>💰 Add a Tip (Optional)</label>
+              <input
+                type="number"
+                placeholder="Enter tip amount..."
+                value={tip}
+                onChange={(e) => setTip(e.target.value)}
+                min="0"
+                step="0.50"
+                className={styles.tipInput}
+              />
+            </div>
+
             <div className={styles.totalPrice}>
-              <span className={styles.totalLabel}>Total:</span>
+              <span className={styles.totalLabel}>Subtotal:</span>
               <span className={styles.totalAmount}>${totalPrice.toFixed(2)}</span>
+            </div>
+
+            {tipAmount > 0 && (
+              <div className={styles.totalPrice} style={{ marginBottom: '1rem' }}>
+                <span className={styles.totalLabel}>Tip:</span>
+                <span className={styles.totalAmount}>${tipAmount.toFixed(2)}</span>
+              </div>
+            )}
+
+            <div className={styles.totalPrice} style={{ background: 'linear-gradient(135deg, #D62828 0%, #B71C1C 100%)', color: 'white', marginBottom: '1.5rem' }}>
+              <span className={styles.totalLabel} style={{ color: 'white' }}>TOTAL:</span>
+              <span className={styles.totalAmount} style={{ color: 'white' }}>${finalTotal.toFixed(2)}</span>
             </div>
 
             <button

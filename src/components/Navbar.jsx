@@ -1,5 +1,6 @@
 import styles from '../styles/Navbar.module.css'
 import { useCart } from '../context/CartContext'
+import { FiShoppingBag } from 'react-icons/fi'
 
 export default function Navbar({ onCartClick, onMenuClick, onOrderClick }) {
   const { cart } = useCart()
@@ -32,12 +33,8 @@ export default function Navbar({ onCartClick, onMenuClick, onOrderClick }) {
         </li>
       </ul>
 
-      <div className={styles.cartIcon} onClick={onCartClick}>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="#C8A27A" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7 4h10l-0.5 2.5H7L7 4z" stroke="#8B5E3C" strokeWidth="1" fill="#C8A27A"/>
-          <path d="M6.5 6.5h11L16 18c0 1-0.5 1.5-1.5 1.5H8c-1 0-1.5-0.5-1.5-1.5L6.5 6.5z" fill="#C8A27A" stroke="#8B5E3C" strokeWidth="1.5"/>
-          <path d="M9 4v-1.5c0-1 0.5-1.5 1.5-1.5h2c1 0 1.5 0.5 1.5 1.5V4" stroke="#8B5E3C" strokeWidth="1.5" fill="none"/>
-        </svg>
+      <div className={styles.cartIcon} onClick={onCartClick} title="View your cart">
+        <FiShoppingBag size={28} color="#A67B5B" strokeWidth={1.5} />
         {cart.length > 0 && (
           <span className={styles.cartBadge}>{cart.length}</span>
         )}

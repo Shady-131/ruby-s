@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   background-color: #FFFFFF;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
@@ -17,7 +17,7 @@
 }
 
 .logoImage {
-  height: 70px; /* ده حجم اللوجو في الشاشات الكبيرة */
+  height: 120px; /* Enlarged logo for better prominence */
   width: auto;
   object-fit: contain;
   transition: transform 0.3s ease;
@@ -52,13 +52,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .cartIcon:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 .cartBadge {

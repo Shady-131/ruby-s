@@ -1,24 +1,41 @@
-.cartContainer {
-  background-color: #FFFFFF;
-  border-radius: 16px;
-  max-width: 500px;
-  width: 100%;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  animation: slideUp 0.3s ease-in-out;
+.cartOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  flex-direction: column;
-  max-height: 80vh;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
 }
 
-@keyframes slideUp {
+.cartBottomSheet {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  animation: slideUpFromBottom 0.3s ease-in-out;
+}
+
+@keyframes slideUpFromBottom {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(100%);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.cartContainer {
+  background-color: #FFFFFF;
+  border-radius: 20px 20px 0 0;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
 }
 
 .cartHeader {
@@ -66,6 +83,23 @@
   overflow-y: auto;
   padding: 1.5rem;
   background-color: #FDF6E3;
+}
+
+.cartItems::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cartItems::-webkit-scrollbar-track {
+  background: #FDF6E3;
+}
+
+.cartItems::-webkit-scrollbar-thumb {
+  background: #89CFF0;
+  border-radius: 3px;
+}
+
+.cartItems::-webkit-scrollbar-thumb:hover {
+  background: #7AB8D6;
 }
 
 .cartItem {
@@ -173,7 +207,7 @@
 .cartFooter {
   padding: 1.5rem;
   background-color: #FFFFFF;
-  border-radius: 0 0 16px 16px;
+  border-radius: 0 0 20px 20px;
   border-top: 2px solid #D62828;
 }
 
@@ -245,6 +279,39 @@
 .continueShoppingButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(137, 207, 240, 0.3);
+}
+
+.tipSection {
+  padding: 1rem;
+  background-color: #FDF6E3;
+  border-top: 2px solid #89CFF0;
+  border-bottom: 2px solid #89CFF0;
+  margin-bottom: 1rem;
+}
+
+.tipLabel {
+  font-weight: 700;
+  color: #1B4332;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.tipInput {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #89CFF0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #1B4332;
+  background-color: #FFFFFF;
+  transition: border-color 0.3s ease;
+}
+
+.tipInput:focus {
+  outline: none;
+  border-color: #D62828;
+  box-shadow: 0 0 8px rgba(214, 40, 40, 0.2);
 }
 
 @media (max-width: 480px) {
